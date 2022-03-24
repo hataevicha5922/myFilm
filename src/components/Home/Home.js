@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import movieApi from '../../common/apis/movieApi';
 import APIKey from '../../common/apis/MovieApiKey';
 import { addMovies } from '../../store/movie/slice';
+import MovieListing from '../MovieListing/MovieListing';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
+      <div className="banner-img"></div>
+      <MovieListing />
     </div>
   );
 };
