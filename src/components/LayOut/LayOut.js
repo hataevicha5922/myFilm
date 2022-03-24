@@ -2,12 +2,16 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import './LayOut.scss';
 
 const LayOut = () => {
   return (
-    <div>
+    <div className="wrapper">
       <Header />
-      <Outlet />
+      <main className="main">
+        <Outlet />
+      </main>
+
       <Footer />
     </div>
   );
