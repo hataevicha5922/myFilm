@@ -1,8 +1,10 @@
 @import '../../common/colors.scss';
 
-.movie-list {
+.movie-list,
+.series-list {
   margin: 20px 0px;
-  .movie-list-title {
+  .movie-list-title,
+  .series-list-title {
     color: $font-secondary;
     margin-bottom: 10px;
     padding-left: 40px;
