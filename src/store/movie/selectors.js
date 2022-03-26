@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-const getMovies = (state) => state.movies;
+const getMoviesData = (state) => state.moviesData;
 
-export const getMoviesList = createSelector(
-  getMovies,
-  (movies) => movies.moviesList
+export const getMoviesTitle = createSelector(
+  getMoviesData,
+  (movies) => movies.moviesTitle
 );

@@ -1,13 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import movieApi from '../../common/apis/movieApi';
 import APIKey from '../../common/apis/MovieApiKey';
 
 export const fetchAsyncSeries = createAsyncThunk(
   'series/fetchAsyncSeries',
-  async (_, { rejectWithValue }) => {
+  async (seriesText, { rejectWithValue }) => {
     try {
-      const seriesText = 'Friends';
       const response = await movieApi.get(
         `?apiKey=${APIKey}&s=${seriesText}&type=series`
       );
