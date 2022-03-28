@@ -12,7 +12,6 @@ const Header = () => {
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
 
-
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };

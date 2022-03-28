@@ -28,11 +28,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <Link to="/">MyFilm</Link>
-      <Form title="Sign Up" handleClick={handleRegister} />
-      <p>
-        Already have an account?<Link to="/signIn">Sign In</Link>{' '}
-      </p>
+      <Form title="Sign Up" handleSubmit={handleRegister} />
     </div>
   );
 }
