@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
-import './Header.scss';
-import { store } from '../../store/store';
 import { setMoviesTitle } from '../../store/movie';
+import './Header.scss';
 
 const Header = () => {
   const { isAuthenticated, userEmail } = useSelector((state) => state.user);
+  const { email } = useSelector((state) => state.user);
   const [term, setTerm] = useState('');
+  const dispatch = useDispatch();
+  console.log('emailHeader', email);
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    store.dispatch(setMoviesTitle(term));
+    dispatch(setMoviesTitle(term));
     setTerm('');
   };
 

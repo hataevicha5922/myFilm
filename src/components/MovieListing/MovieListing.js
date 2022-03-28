@@ -22,7 +22,7 @@ const MovieListing = () => {
         <h2 className="movie-list-title">Movies</h2>
         <div className="movie-container">
           {isLoading && <h2 className="movie-list-title">Loading...</h2>}
-          {moviesError && <h2 className="movie-list-title">Error {error}</h2>}
+          {moviesError && <h2 className="movie-list-title">Error ....</h2>}
           {moviesList?.map((movie) => (
             <MovieCard data={movie} />
           ))}
