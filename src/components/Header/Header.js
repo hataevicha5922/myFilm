@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
+
 import { setMoviesTitle } from '../../store/movie';
 import './Header.scss';
 
@@ -10,7 +11,8 @@ const Header = () => {
   const { email } = useSelector((state) => state.user);
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
-  console.log('emailHeader', email);
+
+
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };
