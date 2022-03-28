@@ -2,13 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import movieApi from '../../common/apis/movieApi';
 import APIKey from '../../common/apis/MovieApiKey';
 
-export const fetchAsyncMovies = createAsyncThunk(
-  'movies/fetchAsyncMovies',
-  async (_, { rejectWithValue }) => {
+export const fetchAsyncSeries = createAsyncThunk(
+  'series/fetchAsyncSeries',
+  async (seriesText, { rejectWithValue }) => {
     try {
-      const movieText = 'Harry';
       const response = await movieApi.get(
-        `?apiKey=${APIKey}&s=${movieText}&type=movie`
+        `?apiKey=${APIKey}&s=${seriesText}&type=series`
       );
       if (response.statusText !== 'OK') {
         throw new Error('Server Error');

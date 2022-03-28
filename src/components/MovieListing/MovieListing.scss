@@ -1,8 +1,10 @@
 @import '../../common/colors.scss';
 
-.movie-list {
+.movie-list,
+.series-list {
   margin: 20px 0px;
-  .movie-list-title {
+  .movie-list-title,
+  .series-list-title {
     color: $font-secondary;
     margin-bottom: 10px;
     padding-left: 40px;
@@ -10,6 +12,17 @@
   }
 }
 
+.movie-search {
+  width: 100%;
+  height: 30px;
+  padding-top: 10px;
+
+  .movie-search-input {
+    width: 100%;
+    padding: 8px;
+    outline: none;
+  }
+}
 .movie-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
