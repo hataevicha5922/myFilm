@@ -11,9 +11,8 @@ export default function SignIn() {
 
   const handleSubmit = (email, password) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email.value, password.value)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
