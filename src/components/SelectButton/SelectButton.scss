@@ -1,0 +1,15 @@
+@import '../../common/colors.scss';
+.wrapper-select {
+  margin-left: 10px;
+  .header-select {
+    outline: none;
+    color: white;
+    background: none;
+    padding: 8px;
+    border-radius: 5px;
+    .option {
+      background: white;
+      color: $primary-color;
+    }
+  }
+}

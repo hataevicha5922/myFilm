@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
-
+import RegisterGroup from '../RegisterGroup/RegisterGroup';
+import { useAuth } from '../../hooks/useAuth';
 import { setMoviesTitle } from '../../store/movie';
+import SelectButton from '../SelectButton/SelectButton';
+import AvatarGroup from '../AvatarGroup/AvatarGroup';
 import './Header.scss';
 
 const Header = () => {
-  const { isAuthenticated, userEmail } = useSelector((state) => state.user);
-  const { email } = useSelector((state) => state.user);
+  const { isAuth, userEmail } = useAuth();
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
-
-
+  console.log('isAuth', useAuth().isAuth);
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };
@@ -41,17 +42,8 @@ const Header = () => {
           </button>
         </form>
       </div>
-      {isAuthenticated && (
-        <div>
-          <h4>{userEmail}</h4> <button>LogOut</button>
-        </div>
-      )}
-      {!isAuthenticated && (
-        <div className="signBtn">
-          <Link to="/signIn">SignIn</Link>
-          <Link to="/signUp">SignUp</Link>
-        </div>
-      )}
+      {isAuth && <AvatarGroup />}
+      {!isAuth && <RegisterGroup />}
     </header>
   );
 };

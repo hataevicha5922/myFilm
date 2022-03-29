@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form } from '../Form/Form';
 import { setUser } from '../../store/user';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
@@ -11,9 +11,8 @@ export default function SignUp() {
 
   const handleRegister = (email, password) => {
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email.value, password.value)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -28,11 +27,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <Link to="/">MyFilm</Link>
-      <Form title="Sign Up" handleClick={handleRegister} />
-      <p>
-        Already have an account?<Link to="/signIn">Sign In</Link>{' '}
-      </p>
+      <Form title="Sign Up" handleSubmit={handleRegister} />
     </div>
   );
 }

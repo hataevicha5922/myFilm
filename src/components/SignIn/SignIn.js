@@ -11,9 +11,8 @@ export default function SignIn() {
 
   const handleSubmit = (email, password) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email.value, password.value)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -28,11 +27,7 @@ export default function SignIn() {
 
   return (
     <div>
-      <Link to="/">MyFilm</Link>
-      <Form title="Sign In" handleClick={handleSubmit} />;
-      <p>
-        I don't have an account?<Link to="/signUp">Sign Up</Link>{' '}
-      </p>
+      <Form title="Sign In" handleSubmit={handleSubmit} />;
     </div>
   );
 }
