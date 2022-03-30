@@ -1,0 +1,9 @@
+@import '../../common/colors.scss';
+
+.wrapper-information {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px;
+  color: $font-primary;
+  font-weight: 400;
+}

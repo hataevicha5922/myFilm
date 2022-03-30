@@ -18,7 +18,17 @@ export const moviesApi = createApi({
       }),
       transformResponse: (response) => response.Search,
     }),
+    getMovie: builder.query({
+      query: (id) => ({
+        url: '/',
+        params: {
+          i: id,
+          apikey: APIKey,
+          plot: 'full',
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetMoviesListQuery } = moviesApi;
+export const { useGetMoviesListQuery, useGetMovieQuery } = moviesApi;

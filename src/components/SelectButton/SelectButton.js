@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getData } from '../../api/apiHandler/getDataBase';
 import './SelectButton.scss';
 
 const SelectButton = () => {
@@ -18,14 +19,16 @@ const SelectButton = () => {
   };
   return (
     <div className="wrapper-select">
-      <select
+      <button onClick={() => navigate('/history')}>History</button>
+      {/* <select
         name="select"
         id="header-select"
         className="header-select"
         onChange={handleSettings}
+        value="settings"
       >
         {' '}
-        <option className="option" value="settings" selected>
+        <option className="option" value="settings" disabled>
           Settings
         </option>
         <option option className="option" value="history">
@@ -34,7 +37,7 @@ const SelectButton = () => {
         <option option className="option" value="logOut">
           Logout
         </option>
-      </select>
+      </select> */}
     </div>
   );
 };

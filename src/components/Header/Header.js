@@ -5,15 +5,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import RegisterGroup from '../RegisterGroup/RegisterGroup';
 import { useAuth } from '../../hooks/useAuth';
 import { setMoviesTitle } from '../../store/movie';
-import SelectButton from '../SelectButton/SelectButton';
 import AvatarGroup from '../AvatarGroup/AvatarGroup';
+import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
-  const { isAuth, userEmail } = useAuth();
+  const { isAuth } = useAuth();
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
-  console.log('isAuth', useAuth().isAuth);
+  const navigate = useNavigate();
   const searchHandler = (e) => {
     setTerm(e.target.value);
   };
@@ -22,6 +22,7 @@ const Header = () => {
     event.preventDefault();
     dispatch(setMoviesTitle(term));
     setTerm('');
+    navigate('/');
   };
 
   return (

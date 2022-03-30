@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './MovieCard.scss';
 
 const MovieCard = (props) => {
@@ -14,6 +16,7 @@ const MovieCard = (props) => {
           <div className="card-info">
             <h4>{data.Title}</h4>
             <p>{data.Year}</p>
+            <Link to={`/movie/${data.imdbID}`}>Show more</Link>
           </div>
         </div>
       </div>
