@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useGetMovieQuery } from '../../store/search';
+import DescriptionMovie from '../DescriptionMovie/DescriptionMovie';
+import PosterMovie from '../PosterMovie/PosterMovie';
+import { useNavigate } from 'react-router-dom';
+import './MovieDitail.scss';
 
-const MovieDitail = () => {
-  return <div>MovieDitail</div>;
+const MovieDetail = () => {
+  const { imbID } = useParams();
+  const navigate = useNavigate();
+  const handleRedir = () => {
+    navigate('/');
+  };
+  const { data, error, isLoading } = useGetMovieQuery(imbID);
+
+  return (
+    <>
+      {isLoading && <h1>Loading...</h1>}
+      {data && (
+        <div className="wrapper-information">
+          <DescriptionMovie data={data} nav={handleRedir} />
+          <PosterMovie data={data} />
+        </div>
+      )}
+      {error && <h1>Error</h1>}
+    </>
+  );
 };
 
-export default MovieDitail;
+export default MovieDetail;
