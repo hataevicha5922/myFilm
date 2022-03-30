@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetMovieQuery } from '../../store/search';
 import DescriptionMovie from '../DescriptionMovie/DescriptionMovie';
 import PosterMovie from '../PosterMovie/PosterMovie';
 import { useNavigate } from 'react-router-dom';
 import './MovieDitail.scss';
+import { ErrorBoundary } from '../ErrorBoundry/ErrorBoundry';
 
 const MovieDetail = () => {
   const { imbID } = useParams();
@@ -19,8 +19,10 @@ const MovieDetail = () => {
       {isLoading && <h1>Loading...</h1>}
       {data && (
         <div className="wrapper-information">
-          <DescriptionMovie data={data} nav={handleRedir} />
-          <PosterMovie data={data} />
+          <ErrorBoundary>
+            <DescriptionMovie data={data} nav={handleRedir} />
+            <PosterMovie data={data} />
+          </ErrorBoundary>
         </div>
       )}
       {error && <h1>Error</h1>}

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useInput } from '../../hooks/useInput';
 import { Link } from 'react-router-dom';
+import { MessageContext } from '../../context/context';
 import './Form.scss';
 
 const Form = ({ title, handleSubmit }) => {
   const email = useInput('', { isEmpty: true, minLength: 3 });
   const pass = useInput('', { isEmpty: true, minLength: 6 });
+  const context = useContext(MessageContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ const Form = ({ title, handleSubmit }) => {
           placeholder="email"
         />
         {email.isDirty && email.isEmpty && (
-          <div className="error">{'Некорректный email'}</div>
+          <div className="error">{context.email}</div>
         )}
 
         <input
@@ -38,9 +40,7 @@ const Form = ({ title, handleSubmit }) => {
           placeholder="password"
         />
         {pass.isDirty && pass.minLengthError && (
-          <div className="error">
-            {'Пароль не должно быть короче 6-х символов'}
-          </div>
+          <div className="error">{context.password}</div>
         )}
 
         <button className="button-submit" type="submit">

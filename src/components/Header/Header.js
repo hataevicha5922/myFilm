@@ -42,11 +42,13 @@ const Header = () => {
           <button type="submit">
             <SearchIcon />
           </button>
-          <button className="button-history">
-            <Link to="/history">
-              <FolderIcon />
-            </Link>
-          </button>
+          {isAuth && (
+            <button className="button-history">
+              <Link to="/history">
+                <FolderIcon />
+              </Link>
+            </button>
+          )}
         </form>
       </div>
       {isAuth && <AvatarGroup />}
