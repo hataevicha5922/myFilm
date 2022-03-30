@@ -2,7 +2,7 @@
 
 .card-item {
   background-color: $secondary-color;
-  cursor: pointer;
+
   transition: all 0.3s;
 
   &:hover {
@@ -23,9 +23,20 @@
 }
 .card-info {
   color: $font-primary;
+
   h4 {
     font-size: 22px;
     font-weight: 400;
     margin-bottom: 10px;
+  }
+  .show-link {
+    text-align: end;
+    .link {
+      color: white;
+      font-size: 14px;
+    }
+    .link:hover {
+      cursor: pointer;
+    }
   }
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
+import FolderIcon from '@mui/icons-material/Folder';
 import RegisterGroup from '../RegisterGroup/RegisterGroup';
 import { useAuth } from '../../hooks/useAuth';
 import { setMoviesTitle } from '../../store/movie';
@@ -40,6 +41,11 @@ const Header = () => {
           />
           <button type="submit">
             <SearchIcon />
+          </button>
+          <button className="button-history">
+            <Link to="/history">
+              <FolderIcon />
+            </Link>
           </button>
         </form>
       </div>
