@@ -3,8 +3,8 @@ import { useGetMovieQuery } from '../../store/search';
 import DescriptionMovie from '../DescriptionMovie/DescriptionMovie';
 import PosterMovie from '../PosterMovie/PosterMovie';
 import { useNavigate } from 'react-router-dom';
-import './MovieDitail.scss';
 import { ErrorBoundary } from '../ErrorBoundry/ErrorBoundry';
+import './MovieDitail.scss';
 
 const MovieDetail = () => {
   const { imbID } = useParams();

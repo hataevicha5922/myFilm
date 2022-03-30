@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import './PosterMovie.scss';
 
 const PosterMovie = ({ data }) => {
+  const { imdbID: id, Title: title, Poster: poster } = data;
   const navigate = useNavigate();
   return (
     <div className="wrapper-poster">
@@ -17,7 +18,7 @@ const PosterMovie = ({ data }) => {
         className="button-folder"
         onClick={() => {
           writeMovieData(data.imdbID, data.Title, data.Poster);
-          navigate('/');
+          navigate('/history');
         }}
       >
         <FontAwesomeIcon icon={faFolderClosed} />
@@ -25,7 +26,7 @@ const PosterMovie = ({ data }) => {
     </div>
   );
 };
-PosterMovie.prototype = {
+PosterMovie.propTypes = {
   data: PropTypes.shape({
     Poster: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,

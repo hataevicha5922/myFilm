@@ -22,7 +22,13 @@ const MovieListing = () => {
           {isLoading && <h2 className="movie-list-title">Loading...</h2>}
           {moviesError && <PageNotFound />}
           {moviesList?.map((movie) => (
-            <MovieCard key={movie.imdbID} data={movie} />
+            <MovieCard
+              key={movie.imdbID}
+              id={movie.imdbID}
+              title={movie.Tiltle}
+              img={movie.Poster}
+              year={movie.Year}
+            />
           ))}
         </div>
       </div>

@@ -5,25 +5,27 @@ import { useAuth } from '../../hooks/useAuth';
 import './MovieCard.scss';
 
 const MovieCard = (props) => {
-  const { data } = props;
+  const { id, title, img, year } = props;
   const { isAuth } = useAuth();
 
   return (
     <div className="card-item">
       <div className="card-inner">
         <div className="card-top">
-          <img src={data.Poster} alt={data.Title} />
+          <img src={img} alt={title} />
         </div>
         <div className="card-bottom">
           <div className="card-info">
-            <h4>{data.Title}</h4>
+            <h4>{title}</h4>
 
-            <p>{data.Year}</p>
+            <p>{year}</p>
 
             {isAuth && (
               <div className="show-link">
                 {' '}
-                <Link to={`/movie/${data.imdbID}`}>Show more</Link>
+                <Link className="link" to={`/movie/${id}`}>
+                  Show more
+                </Link>
               </div>
             )}
             {!isAuth && (
