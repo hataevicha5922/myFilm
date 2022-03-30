@@ -1,15 +1,16 @@
 @import '../../common/colors.scss';
 .wrapper-select {
-  margin-left: 10px;
-  .header-select {
-    outline: none;
-    color: white;
+  .button-sign {
     background: none;
-    padding: 8px;
+    border: 1px solid white;
+    padding: 7px 15px;
     border-radius: 5px;
-    .option {
-      background: white;
-      color: $primary-color;
-    }
+    margin-right: 10px;
+    color: white;
+    margin-left: 10px;
+  }
+  .button-sign:hover {
+    background: white;
+    color: $primary-color;
   }
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getMoviesTitle } from '../../store/movie';
-import { getSeriesList } from '../../store/series';
 import { useGetMoviesListQuery } from '../../store/search';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieListing.scss';
 
 const MovieListing = () => {
-  const { status, error } = useSelector((state) => state.series);
-  const seriesList = useSelector(getSeriesList);
   const moviesTitle = useSelector(getMoviesTitle);
   const {
     data: moviesList,
@@ -22,21 +20,15 @@ const MovieListing = () => {
         <h2 className="movie-list-title">Movies</h2>
         <div className="movie-container">
           {isLoading && <h2 className="movie-list-title">Loading...</h2>}
-          {moviesError && <h2 className="movie-list-title">Error ....</h2>}
+          {moviesError && <PageNotFound />}
           {moviesList?.map((movie) => (
-            <MovieCard key={movie.imdbId} data={movie} />
-          ))}
-        </div>
-      </div>
-      <div className="series-list">
-        <h2 className="series-list-title">Series</h2>
-        <div className="movie-container">
-          {status === 'loading' && (
-            <h2 className="series-list-title">Loading...</h2>
-          )}
-          {error && <h2 className="series-list-title">Error {error}</h2>}
-          {seriesList.map((episode) => (
-            <MovieCard key={episode.imdbId} data={episode} />
+            <MovieCard
+              key={movie.imdbID}
+              id={movie.imdbID}
+              title={movie.Tiltle}
+              img={movie.Poster}
+              year={movie.Year}
+            />
           ))}
         </div>
       </div>

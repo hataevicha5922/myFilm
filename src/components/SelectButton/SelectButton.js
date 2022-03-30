@@ -1,43 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getData } from '../../api/apiHandler/getDataBase';
+import { removeUser } from '../../store/user';
+import { useDispatch } from 'react-redux';
 import './SelectButton.scss';
 
 const SelectButton = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleSettings = (e) => {
-    switch (e.target.value) {
-      case 'history':
-        navigate('/signIn');
-        break;
-      case 'logOut':
-        alert('logOut');
-        break;
-      default:
-        return 'settings';
-    }
+
+  const logOut = () => {
+    dispatch(removeUser());
+    navigate('/');
   };
+
   return (
     <div className="wrapper-select">
-      <button onClick={() => navigate('/history')}>History</button>
-      {/* <select
-        name="select"
-        id="header-select"
-        className="header-select"
-        onChange={handleSettings}
-        value="settings"
-      >
-        {' '}
-        <option className="option" value="settings" disabled>
-          Settings
-        </option>
-        <option option className="option" value="history">
-          History
-        </option>
-        <option option className="option" value="logOut">
-          Logout
-        </option>
-      </select> */}
+      <button className="button-sign" onClick={logOut}>
+        LogOut
+      </button>
     </div>
   );
 };

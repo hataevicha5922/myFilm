@@ -1,7 +1,6 @@
 import React from 'react';
 import SelectButton from '../SelectButton/SelectButton';
 import FallbackAvatars from '../Avatar/Avatar';
-import { dbRef } from '../../api/apiHandler/getDataBase';
 import './AvatarGroup.scss';
 
 const AvatarGroup = () => {
