@@ -3,6 +3,7 @@ import { movieReducer } from './movie';
 import { userReducer } from './user';
 import { seriesReducer } from './series';
 import { moviesApi } from './search';
+import { logger } from './middleware/logger';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -14,5 +15,5 @@ const rootReducer = combineReducers({
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(moviesApi.middleware),
+    getDefaultMiddleware().concat(moviesApi.middleware, logger),
 });
