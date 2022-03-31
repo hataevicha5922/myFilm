@@ -36,6 +36,7 @@
   .box input[type='email']:focus,
   .box input[type='password']:focus {
     border-color: #2ecc71;
+    background: none;
   }
   .button-submit {
     border: 0;
@@ -52,6 +53,7 @@
     transition: 0.25s;
     cursor: pointer;
   }
+
   .button-submit:hover {
     background: #2ecc71;
   }

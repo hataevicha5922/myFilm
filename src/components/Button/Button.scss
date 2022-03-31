@@ -1,0 +1,11 @@
+@import '../../common/colors.scss';
+.button-sign {
+  border: 1px solid white;
+  padding: 7px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.button-sign:hover {
+  background: white;
+  color: $primary-color;
+}

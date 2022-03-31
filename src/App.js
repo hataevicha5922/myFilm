@@ -7,6 +7,7 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import LayOut from './components/LayOut/LayOut';
 import History from './components/History/History';
+import Preloader from './components/Preloader/Preloader';
 import { MessageContext } from './context/context';
 import { errorMessages } from './common/messages/errorMessag';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/preloader" element={<Preloader />} />
         </Routes>
       </MessageContext.Provider>
     </div>

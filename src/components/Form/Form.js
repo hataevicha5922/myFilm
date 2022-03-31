@@ -25,8 +25,9 @@ const Form = ({ title, handleSubmit }) => {
           name="email"
           value={email.value}
           onChange={(e) => email.onChange(e)}
-          onBlur={(e) => email.onBlur(e)}
+          onFocus={(e) => email.onBlur(e)}
           placeholder="email"
+          required
         />
         {email.isDirty && email.isEmpty && (
           <div className="error">{context.email}</div>
@@ -36,13 +37,13 @@ const Form = ({ title, handleSubmit }) => {
           type="password"
           value={pass.value}
           onChange={(e) => pass.onChange(e)}
-          onBlur={(e) => pass.onBlur(e)}
+          onFocus={(e) => pass.onBlur(e)}
           placeholder="password"
+          required
         />
         {pass.isDirty && pass.minLengthError && (
           <div className="error">{context.password}</div>
         )}
-
         <button className="button-submit" type="submit">
           {title}
         </button>

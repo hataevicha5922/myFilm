@@ -4,6 +4,7 @@ import { getMoviesTitle } from '../../store/movie';
 import { useGetMoviesListQuery } from '../../store/search';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import MovieCard from '../MovieCard/MovieCard';
+import Preloader from '../Preloader/Preloader';
 import './MovieListing.scss';
 
 const MovieListing = () => {
@@ -19,13 +20,13 @@ const MovieListing = () => {
       <div className="movie-list">
         <h2 className="movie-list-title">Movies</h2>
         <div className="movie-container">
-          {isLoading && <h2 className="movie-list-title">Loading...</h2>}
+          {isLoading && <Preloader />}
           {moviesError && <PageNotFound />}
           {moviesList?.map((movie) => (
             <MovieCard
               key={movie.imdbID}
               id={movie.imdbID}
-              title={movie.Tiltle}
+              title={movie.Title}
               img={movie.Poster}
               year={movie.Year}
             />

@@ -22,7 +22,7 @@ export default function SignIn() {
         );
         navigate('/');
       })
-      .catch((error) => alert(error));
+      .catch((error) => navigate('*'));
   };
 
   return (

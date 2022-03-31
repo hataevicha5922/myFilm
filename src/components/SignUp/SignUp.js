@@ -22,7 +22,7 @@ export default function SignUp() {
         );
         navigate('/');
       })
-      .catch((error) => alert(error));
+      .catch(() => navigate('*'));
   };
 
   return (

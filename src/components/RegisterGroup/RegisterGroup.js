@@ -1,16 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './RegisterGroup.scss';
+import { Button } from '../Button/Button';
 
 const RegisterGroup = () => {
   return (
     <div className="wrapper-button-group">
-      <Link className="button-sign" to="/signIn">
-        SignIn
-      </Link>
-      <Link className="button-sign" to="/signUp">
-        SignUp
-      </Link>
+      <Button title="SignIn" path="/signIn" />
+      <Button title="SignUp" path="/signUp" />
     </div>
   );
 };
